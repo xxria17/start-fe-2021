@@ -1,21 +1,32 @@
 var files = ["data/class.json", "data/quiz.json"];
 var filter = 'all';
 var quizFilter = 'quizall';
+var flag = 'class';
 const tbody = document.querySelector(".tbody");
-const qbody = document.querySelector(".quiz_body")
-const tTr = document.querySelectorAll(".tbody tr")
+const qbody = document.querySelector(".quiz_body");
+const tTr = document.querySelectorAll(".tbody tr");
+const $classLoading = document.querySelector("#class_loading");
+const $quizLoading = document.querySelector("#quiz_loading");
+
+$classLoading.style.display = "none";
+$quizLoading.style.display = "none";
+
 // json 파일 읽기
 function readJsonFile() {
-    for (let i = 0; i < files.length; i++) {
+    setTimeout(function() {
+        $classLoading.style.display = "none";
+        $quizLoading.style.display = "none";
+        for (let i = 0; i < files.length; i++) {
         fetch(files[i])
         .then((response) => (response.json()))
         .then((data) => displayClassItems(data))
         .catch(error => console.log(error));
     }
+    }, 500);
+    loading();
 }
 
 function displayClassItems(data) {
-
     if (data.length > 13) {
         tbody.innerHTML = data.map((item, index)=> createHTML(item, index)).join("");
     } else {
@@ -206,6 +217,7 @@ function selectTab(event) {
         } else {
             tabBtn[5].className += " active";
         }
+        flag = 'class';
     } else {
         quizFilter = event.currentTarget.value;
         if (filter == 'all') {
@@ -217,6 +229,7 @@ function selectTab(event) {
         } else {
             tabBtn[3].className += " active";
         }
+        flag = 'quiz';
     }
     event.currentTarget.className += " active";
     readJsonFile();
@@ -229,3 +242,11 @@ function sort() {
     })
 }
 
+// 로딩
+function loading() {
+    if (flag == 'class') {
+        $classLoading.style.display = "block";
+    } else {
+        $quizLoading.style.display = "block";
+    }
+}
