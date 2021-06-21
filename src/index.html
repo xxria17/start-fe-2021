@@ -24,14 +24,14 @@
           <!-- 학습리스트 필터 -->
           <div class="btn-group" role="group">
             <!-- 선택된 버튼에만 active 속성 추가 -->
-            <button type="button" class="btn btn-outline-primary active" onclick="selectTab(event)" value="all">
+            <button type="button" class="btn btn-outline-primary active" value="all">
               모두
             </button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectTab(event)" value="link">
+            <button type="button" class="btn btn-outline-primary" value="link">
               도움링크
             </button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectTab(event)" value="git">git</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectTab(event)" value="recent">
+            <button type="button" class="btn btn-outline-primary" value="git">git</button>
+            <button type="button" class="btn btn-outline-primary" value="recent">
               최신순
             </button>
           </div>
@@ -63,10 +63,10 @@
         <!-- 퀴즈리스트 필터 -->
         <div class="btnwrap">
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-primary active" onclick="selectTab(event)" value="quizall">
+            <button type="button" class="btn btn-outline-primary active" value="quizall">
               모두
             </button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectTab(event)" value="quizgit">git</button>
+            <button type="button" class="btn btn-outline-primary" value="quizgit">git</button>
           </div>
         </div>
       </div>
@@ -90,5 +90,5 @@
       </table>
     </div>
   </body>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </html>
