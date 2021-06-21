@@ -1,7 +1,7 @@
 import load from './load-data.js';
 import createHTML from './html-render.js';
 
-const files = ["/data/class.json", "/data/quiz.json"];
+const files = ["./class.json", "./quiz.json"];
 const tbody = document.querySelector(".tbody");
 const qbody = document.querySelector(".quiz_body");
 const tTr = document.querySelectorAll(".tbody tr");
